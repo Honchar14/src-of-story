@@ -1,0 +1,55 @@
+.blog_title {
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.blog_item {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin-bottom: 50px;
+
+}
+
+.blog_content {
+    margin-top: 20px;
+    border: 2px solid transparent; /* Устанавливаем начальную обводку как невидимую */
+    border-image: linear-gradient(160deg, white 30%, black); /* Создаем градиентную обводку */
+    border-image-slice: 1; /* Указываем, что градиент должен заполнять всю границу */
+}
+
+.blog_img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    background-size: cover;
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.20);
+}
+
+.blog_data {
+    font-size: 18px;
+    opacity: 70%;
+    color: red;
+}
+
+.blog_name {
+    margin-top: 5px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.blog_subtitle {
+    margin-top: 10px;
+    font-size: 16px;
+    max-width: 80%;
+    margin-bottom: 20px;
+    opacity: 70%;
+}
+
+.blog_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

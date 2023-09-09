@@ -1,0 +1,18 @@
+.button_products {
+    background-color: black;
+    padding: 15px 100px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    box-shadow: -1px 1px 3px 0 rgba(0, 0, 0, 0.30);
+    color: white;
+    transition: 0.3s ease;
+}
+
+.button_products:disabled {
+    opacity: 80%;
+}
+
+.button_products:hover {
+    transform: scale(1.1);
+}

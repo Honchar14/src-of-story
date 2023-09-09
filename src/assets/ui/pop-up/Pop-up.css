@@ -1,0 +1,68 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: -1px 2px 5px 0 rgba(0, 0, 0, 0.51);
+    transition: 0.5s;
+}
+
+
+.modal_background {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 30px;
+    transition: 0.4s;
+    position: relative;
+}
+
+.button_modal {
+    background-color: black;
+    color: white;
+    width: 242px;
+}
+
+.input_modal {
+    background: transparent;
+    width: 200px;
+    border: 1px solid black;
+    padding: 16px 20px;
+    border-radius: 50px;
+}
+
+.input_modal:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.modal_input_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.close_button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+

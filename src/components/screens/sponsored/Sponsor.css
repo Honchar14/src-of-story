@@ -1,0 +1,21 @@
+.sponsor_block {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    align-items: center;
+    padding: 0 200px 0 200px;
+}
+
+.sponsor_img {
+    max-width: 100px;
+    opacity: 50%;
+}
+
+
+.sponsor_name {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+

@@ -1,0 +1,29 @@
+.promo {
+    height: 700px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+.slider_content__title {
+    color: white;
+    font-weight: 500;
+    font-size: 100px;
+    margin-bottom: 30px;
+}
+
+.slider_content__subtitle{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    max-width: 50%;
+}
+
+
+.promo_slider__content {
+    max-width: 45%;
+}
+
+
+
+

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Montserrat:wght@300;600&display=swap');
+
+/*Обнуление*/
+
+*{
+    font-family: 'Bricolage Grotesque', sans-serif;
+    padding: 0;
+    margin: 0 ;
+    border: 0;
+}
+
+
+
+html,body{
+    height: 100%;
+    width: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;margin: 0;padding: 0;}
+p{padding: 0;margin: 0;}
+
+/*//////////*/
+
+body {
+    background-color: white;
+}
+
+.container {
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.red {
+    color: red;
+}
+
+.nav_link {
+    color: black;
+}
+
+
+.nav_link:hover {
+    color: red;
+    transition: 0.5s ease;
+}
+
+

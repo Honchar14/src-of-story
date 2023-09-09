@@ -1,0 +1,98 @@
+.admin_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin_photo {
+    position: relative;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.camera_icon {
+    max-width: 20px;
+    position: absolute;
+    margin-top: 40px;
+    filter: brightness(0) invert(1) hue-rotate(0deg) saturate(100%);
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.admin_photo:hover .admin_photo__image {
+    filter: brightness(40%);
+}
+
+.admin_photo:hover .camera_icon {
+    display: block;
+}
+
+.admin_photo__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: url("../../../../public/img/profile.jpg");
+    object-fit: cover;
+    background-size: cover;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+
+.admin_photo__name {
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.admin_settings {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.settings_title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.admin_settings__global {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.global_title_Phone {
+    margin-top: 20px;
+}
+
+.modal_input_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.modal_input_menu h2 {
+    font-size: 20px;
+}
+
+.admin_btn {
+    margin-top: 20px;
+}

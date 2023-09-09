@@ -1,0 +1,29 @@
+.brand {
+    position: relative;
+    margin-top: 100px;
+}
+
+.container {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.brand_video {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.7);
+}
+
+.video_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
