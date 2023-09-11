@@ -6,8 +6,8 @@ export const componentsData = [
         images: ["/img/products/products-crocs-1.jpg","/img/products/products-crocs-2.jpg","/img/products/products-crocs-3.jpg","/img/products/products-crocs-4.jpg"],
         brand: 'Crocks',
         title: 'Green Zing 3 RR',
-        price: '120',
-        priceTotal: '120',
+        price: 120,
+        priceTotal: 120,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -18,8 +18,8 @@ export const componentsData = [
         images:["/img/products/products-misbhv-1.jpg","/img/products/products-misbhv-2.jpg","/img/products/products-misbhv-3.jpg","/img/products/products-misbhv-4.jpg"],
         brand: 'MISBHV',
         title: 'MISBHV / Sleeps',
-        price: '123',
-        priceTotal: '123',
+        price: 123,
+        priceTotal: 123,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -30,8 +30,8 @@ export const componentsData = [
         images: ["/img/products/products-nmd-1.jpg","/img/products/products-nmd-2.jpg","/img/products/products-nmd-3.jpg","/img/products/products-nmd-4.jpg"],
         brand: 'Adidas',
         title: 'NMD Type 4/CAMO',
-        price: '158',
-        priceTotal: '158',
+        price: 158,
+        priceTotal: 158,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -42,8 +42,8 @@ export const componentsData = [
         images: ["/img/products/products-raf-1.jpg","/img/products/products-raf-2.jpg","/img/products/products-raf-3.jpg","/img/products/products-raf-4.jpg"],
         brand: 'Raf simons',
         title: 'Runner / Black Tron',
-        price: '192',
-        priceTotal: '192',
+        price: 192,
+        priceTotal: 192,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -54,8 +54,8 @@ export const componentsData = [
         images: ["/img/products/products-runner-1.jpg","/img/products/products-runner-2.jpg","/img/products/products-runner-3.jpg","/img/products/products-runner-4.jpg"],
         brand: 'Adidas',
         title: 'Big spuns T3T',
-        price: '148',
-        priceTotal: '148',
+        price: 148,
+        priceTotal: 148,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -66,8 +66,8 @@ export const componentsData = [
         images: ["/img/products/products-slides-1.jpg","/img/products/products-slides-2.jpg","/img/products/products-slides-3.jpg","/img/products/products-slides-4.jpg"],
         brand: 'Adidas',
         title: 'Orange sleepers/3',
-        price: '210',
-        priceTotal: '210',
+        price: 210,
+        priceTotal: 210,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -78,8 +78,8 @@ export const componentsData = [
         images:["/img/products/products-vmv-1.jpg","/img/products/products-vmv-2.jpg","/img/products/products-vmv-3.jpg","/img/products/products-vmv-4.jpg"],
         brand: 'Nike',
         title: 'Brown ice cream / 3',
-        price: '173',
-        priceTotal: '173',
+        price: 173,
+        priceTotal: 173,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -90,8 +90,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -102,8 +102,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -114,8 +114,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -126,8 +126,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -138,8 +138,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     }, {
@@ -149,8 +149,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     }, {
@@ -160,8 +160,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     }, {
@@ -171,8 +171,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     }, {
@@ -183,8 +183,8 @@ export const componentsData = [
         brand: 'Adidas',
         title: 'crazy mode v3',
         color: ['blue', 'red', 'green', 'black', 'brown'],
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         size: ['6', '7','8','9','10','11','12']
 
     },
@@ -195,8 +195,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -207,8 +207,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -219,8 +219,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -231,8 +231,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     }, {
@@ -242,8 +242,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -254,8 +254,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -266,8 +266,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     },
@@ -278,8 +278,8 @@ export const componentsData = [
         images:["/img/products/products-continental-1.jpg","/img/products/products-continental-2.jpg","/img/products/products-continental-3.jpg","/img/products/products-continental-4.jpg"],
         brand: 'Adidas',
         title: 'crazy mode v3',
-        price: '212',
-        priceTotal: '212',
+        price: 212,
+        priceTotal: 212,
         color: ['blue', 'red', 'green', 'black', 'brown'],
         size: ['6', '7','8','9','10','11','12']
     }

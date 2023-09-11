@@ -5,8 +5,8 @@ import "./Footer.css"
 import ButtonMain from "../../../assets/ui/ButtonMain.jsx";
 import PopUp from "../../../assets/ui/pop-up/Pop-up.jsx";
 import Search from "../../../assets/ui/Search.jsx";
-import {globalBasket} from "../basket/classes/ClassBasket.js";
 import LayoutData from "./LayoutData.js";
+import {useSelector} from "react-redux";
 
 
 const Layout  = () => {
@@ -21,7 +21,8 @@ const Layout  = () => {
 
     const [searchMenuVisible, setSearchMenuVisible] = useState(false);
 
-    const [quantitiesProductVisible, setQuantitiesProductVisible] = useState(false)
+
+    const cartItems = useSelector(state => state.cart.itemsInCart)
 
 
     const setRandomJordan = () => {
@@ -71,14 +72,6 @@ const Layout  = () => {
         }
     }
 
-    const getTotalQuantity = () => {
-        return globalBasket.getTotalQuantity();
-    };
-
-    useEffect(() => {
-        const totalProductQuantity = getTotalQuantity();
-        setQuantitiesProductVisible(totalProductQuantity > 0);
-    }, []);
 
     return (
         <>
@@ -119,8 +112,8 @@ const Layout  = () => {
                                 <img src="../../../../public/img/basket.svg" alt="search" className='icon'/>
                             </Link>
                         </a>
-                        {quantitiesProductVisible && (
-                            <div className='quantities_product'>{getTotalQuantity()}</div>
+                        {cartItems.length > 0 && (
+                            <div className='quantities_product'>{cartItems.length}</div>
                         )}
 
                         <a href="#" className='header_media__icon'>

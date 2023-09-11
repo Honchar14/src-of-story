@@ -3,41 +3,48 @@ import "./Basket.css"
 import Banner from "../categories(kids, man, girls)/multiComponents/Banner.jsx";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import ClassBasket, {globalBasket} from "./classes/ClassBasket.js";
+import {useSelector, useDispatch} from "react-redux";
+import {deleteItemFromCart} from "../../redux/cart/reducer.js";
+
 
 const Basket = () => {
-    const [basket, setBasket] = useState(globalBasket);
-    const [key, setKey] = useState(0);
     const flatPrice = 15;
-
-
-    const handleRemoveFromCart = (product) => {
-        basket.deleteFromCard(product);
-        setKey(Math.random());
+    const products = useSelector(state => state.cart.itemsInCart)
+    const totalPrice = products.reduce((acc, product) => acc += product.price, 0)
+    const dispatch = useDispatch();
+    const deleteFromCart = (productId) => {
+        dispatch(deleteItemFromCart(productId));
     }
 
-    const increase = (id) => {
-        basket.increaseQuantity(id);
-        setKey(Math.random());
+    const [quantities, setQuantities] = useState(
+        products.reduce((quantities, product) => {
+            quantities[product.id] = 1;
+            return quantities;
+        }, {})
+    );
+
+    const updateQuantity = (productId, newQuantity) => {
+        setQuantities({
+            ...quantities,
+            [productId]: newQuantity,
+        });
     };
 
-    const decrease = (id) => {
-        basket.decreaseQuantity(id);
-        setKey(Math.random());
+    const calculateItemTotal = (product) => {
+        const quantity = quantities[product.id];
+        return quantity * product.price;
     };
 
-
-    const getTotalQuantity = () => {
-        let totalQuantity = 0;
-        for (const product of basket.productArr) {
-            totalQuantity += product.quantity;
-        }
-        return totalQuantity;
+    const calculateTotalPrice = () => {
+        return products.reduce((total, product) => {
+            return total + calculateItemTotal(product);
+        }, 0);
     };
+
 
 
     return (
-        <section key={key} className='basket'>
+        <section className='basket'>
             <Banner>
                 <h2>Basket</h2>
             </Banner>
@@ -46,28 +53,30 @@ const Basket = () => {
                 <h2 className='basket_title'>Product</h2>
                 <div className='basket_section'>
                     <div className='basket_container'>
-                        {basket.productArr.map((product, index) => (
-                            <div className='basket_product' key={index}>
-                                <button
-                                    className='button_close'
-                                    onClick={() => handleRemoveFromCart(product)}>X
-                                </button>
+                        {products.map((product, index) => (
+                            <div key={index} className='basket_product'>
+                                <button className='button_close' onClick={() => deleteFromCart(product.id)}>X</button>
                                 <img src={product.img} alt="product_img" className='basket_product__img'/>
                                 <div className='product_description'>
                                     <h2 className='basket_product__name'>{product.title}</h2>
-                                    <h3 className='basket_product__color'>Color:  {product.props ? product.props.color : undefined}</h3>
-                                    <h3 className='basket_product__size'>Size:  {product.props ? product.props.size : undefined}</h3>
+                                    <h3 className='basket_product__color'>Color: {product.props ? product.props.color : "Color not selected"}</h3>
+                                    <h3 className='basket_product__size'>Size: {product.props ? product.props.size : "Size not selected"}</h3>
                                 </div>
                                 <div className='basket_counter'>
-                                    <input className='counter' value={product.quantity}/>
+                                    <input className='counter' value={quantities[product.id]} readOnly/>
                                     <div className='counter_controls'>
-                                        <KeyboardArrowLeftIcon className={'product-arrow'}
-                                                               onClick={() => increase(product.id)}/>
-                                        <KeyboardArrowRightIcon className={'product-arrow'}
-                                                                onClick={() => decrease(product.id)}/>
+                                        <div>
+                                            <KeyboardArrowLeftIcon className={'product-arrow'} onClick={() => updateQuantity(product.id, quantities[product.id] + 1)}/>
+                                        </div>
+                                        <div>
+                                            <KeyboardArrowRightIcon className={'product-arrow'} onClick={() => updateQuantity(product.id, quantities[product.id] - 1)}/>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="basket_price">{product.quantity * product.price}$</div>
+                                <div className="basket_price">{Number(calculateItemTotal(product)).toLocaleString("en-US", {
+                                    style: "currency",
+                                    currency: "USD",
+                                })}</div>
                             </div>
                         ))}
                     </div>
@@ -75,7 +84,10 @@ const Basket = () => {
                         <h2 className='total_title'>Cart total</h2>
                         <div className='subtotal'>
                             <p className='total_name'>Subtotal:</p>
-                            <p className='total_price'>{basket.totalSum()}$</p>
+                            <p className='total_price'>{Number(calculateTotalPrice()).toLocaleString("en-US", {
+                                style: "currency",
+                                currency: "USD",
+                            })}</p>
                         </div>
                         <div className='shipping'>
                             <h2 className='total_title'>Shipping</h2>
@@ -86,7 +98,10 @@ const Basket = () => {
                         </div>
                         <div className='total'>
                             <h2 className='total_title'>Total</h2>
-                            <h2 className='total_price'>{basket.totalSum() + flatPrice}$</h2>
+                            <h2 className='total_price'>{Number(calculateTotalPrice() + flatPrice).toLocaleString("en-US", {
+                                style: "currency",
+                                currency: "USD",
+                            })}</h2>
                         </div>
                     </div>
                 </div>

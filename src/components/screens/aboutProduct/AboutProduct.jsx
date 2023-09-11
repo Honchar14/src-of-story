@@ -6,18 +6,23 @@ import {useParams} from "react-router-dom";
 import {useContext} from "react";
 import LeftSection from "./components/LeftSection.jsx";
 import ButtonProducts from "../../../assets/ui/ButtonProducts.jsx";
-import {globalBasket} from "../basket/classes/ClassBasket.js";
+import {useDispatch} from "react-redux";
+import {setItemInCart} from "../../redux/cart/reducer.js";
 
 const AboutProduct = () => {
     const [productProp, setProductProp] = useState({})
+
     const {products} = useContext(ReferenceProductsContext);
     const {productId} = useParams();
     const product = products.find(item => item.id === Number(productId));
 
+    const dispatch = useDispatch();
 
-    const handleAddToCart = () => {
-        globalBasket.addToCart(Object.assign({},product,{'props': productProp}));
-    };
+
+    const addToCart = (e) => {
+        e.stopPropagation();
+        dispatch(setItemInCart({ ...product, props: productProp }));
+    }
 
     const onSizeSelected = function (size) {
         setProductProp(Object.assign({}, productProp, {size: size}))
@@ -65,7 +70,7 @@ const AboutProduct = () => {
                             </div>
                             <p className='right_section_description'></p>
                             <div className='right_section_btns'>
-                                <ButtonProducts className="button_cart button_about" onClick={handleAddToCart}>Add to
+                                <ButtonProducts className="button_cart button_about" onClick={addToCart}>Add to
                                     cart</ButtonProducts>
                                 <ButtonProducts className="button_wish" onClick={addToWishlist}>Add to
                                     wishlist</ButtonProducts>
