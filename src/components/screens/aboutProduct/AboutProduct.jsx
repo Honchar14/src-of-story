@@ -11,6 +11,7 @@ import { setItemInCart } from "../../redux/cart/reducer.js";
 
 const AboutProduct = () => {
     const [productProp, setProductProp] = useState({
+        id: -1,
         size: "",
         color: "",
         quantity: 1,
@@ -26,11 +27,15 @@ const AboutProduct = () => {
     const addToCart = (e) => {
         e.stopPropagation();
         const totalPrice = product.price * productProp.quantity;
+        const updatedProduct = {
+            ...product,
+            quantity: 1, // Create a copy of the product with the quantity set to 1
+        };
         dispatch(
             setItemInCart({
-                ...product,
+                ...updatedProduct,
                 props: { ...productProp, totalPrice },
-                id: product.id,
+                id: updatedProduct.id, // Use the updatedProduct.id
             })
         );
     };

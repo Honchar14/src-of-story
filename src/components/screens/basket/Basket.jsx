@@ -10,20 +10,21 @@ const Basket = () => {
     const flatPrice = 15;
     const products = useSelector((state) => state.cart.itemsInCart);
     const totalPrice = products.reduce((acc, product) => {
-        return acc + product.props.totalPrice;
+        return acc + (product.props.totalPrice * product.props.quantity);
     }, 0);
     const dispatch = useDispatch();
+    console.log(products);
 
-    const deleteFromCart = (productId) => {
-        dispatch(deleteItemFromCart(productId));
+    const deleteFromCart = (product_props) => {
+        dispatch(deleteItemFromCart(product_props));
     };
 
-    const increaseProductQuantity = (productId) => {
-        dispatch(increaseQuantity(productId));
+    const increaseProductQuantity = (product_props) => {
+        dispatch(increaseQuantity(product_props));
     };
 
-    const decreaseProductQuantity = (productId) => {
-        dispatch(decreaseQuantity(productId));
+    const decreaseProductQuantity = (product_props) => {
+        dispatch(decreaseQuantity(product_props));
     };
 
     return (
@@ -40,7 +41,7 @@ const Basket = () => {
                             <div key={product.id} className="basket_product">
                                 <button
                                     className="button_close"
-                                    onClick={() => deleteFromCart(product.id)}
+                                    onClick={() => deleteFromCart(product.props)}
                                 >
                                     X
                                 </button>
@@ -62,19 +63,19 @@ const Basket = () => {
                                     <span className="counter">{product.props.quantity}</span>
                                     <div className="counter_controls">
                                         <button
-                                            onClick={() => increaseProductQuantity(product.id)}
+                                            onClick={() => increaseProductQuantity(product.props)}
                                         >
                                             <KeyboardArrowLeftIcon className={"product-arrow"} />
                                         </button>
                                         <button
-                                            onClick={() => decreaseProductQuantity(product.id)}
+                                            onClick={() => decreaseProductQuantity(product.props)}
                                         >
                                             <KeyboardArrowRightIcon className={"product-arrow"} />
                                         </button>
                                     </div>
                                 </div>
                                 <div className="basket_price">
-                                    {product.props.totalPrice}$
+                                    {product.price * product.props.quantity}$
                                 </div>
                             </div>
                         ))}
