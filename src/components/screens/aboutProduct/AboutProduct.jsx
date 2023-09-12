@@ -39,7 +39,6 @@ const AboutProduct = () => {
         setProductProp({
             ...productProp,
             size: size,
-            totalPrice: product.price * productProp.quantity,
         });
     };
 
@@ -47,7 +46,6 @@ const AboutProduct = () => {
         setProductProp({
             ...productProp,
             color: color,
-            totalPrice: product.price * productProp.quantity,
         });
     };
 
