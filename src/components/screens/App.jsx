@@ -13,6 +13,7 @@ import {componentsData} from "./componentsData.js";
 import AdminPanel from "./adminPanel/AdminPanel.jsx";
 import Basket from "./basket/Basket.jsx";
 import AboutUs from "./aboutUs/AboutUs.jsx";
+import Checkout from "./checkout/Checkout.jsx";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                         <Route path="/adminPanel" element={<AdminPanel />} />
                         <Route path="/Basket" element={<Basket />} />
                         <Route path="/aboutUS" element={<AboutUs />} />
+                        <Route path="/checkout" element={<Checkout />} />
                     </Route>
                 </Routes>
             </div>

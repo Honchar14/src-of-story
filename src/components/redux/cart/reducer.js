@@ -8,7 +8,7 @@ const cartSlice = createSlice({
     reducers: {
         setItemInCart: (state, action) => {
             const { id, props } = action.payload;
-            const updatedProps = { ...props, id }; // Update the id property
+            const updatedProps = { ...props, id };
             state.itemsInCart.push({ ...action.payload, props: updatedProps });
         },
         deleteItemFromCart: (state, action) => {

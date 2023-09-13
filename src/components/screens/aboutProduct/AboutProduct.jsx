@@ -29,13 +29,13 @@ const AboutProduct = () => {
         const totalPrice = product.price * productProp.quantity;
         const updatedProduct = {
             ...product,
-            quantity: 1, // Create a copy of the product with the quantity set to 1
+            quantity: 1,
         };
         dispatch(
             setItemInCart({
                 ...updatedProduct,
                 props: { ...productProp, totalPrice },
-                id: updatedProduct.id, // Use the updatedProduct.id
+                id: updatedProduct.id,
             })
         );
     };

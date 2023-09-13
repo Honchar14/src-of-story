@@ -3,8 +3,10 @@ import "./Basket.css";
 import Banner from "../categories(kids, man, girls)/multiComponents/Banner.jsx";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { useSelector, useDispatch } from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {deleteItemFromCart, increaseQuantity, decreaseQuantity,} from "../../redux/cart/reducer.js";
+import ButtonProducts from "../../../assets/ui/ButtonProducts.jsx";
+import {Link} from "react-router-dom";
 
 const Basket = () => {
     const flatPrice = 15;
@@ -65,12 +67,12 @@ const Basket = () => {
                                         <button
                                             onClick={() => increaseProductQuantity(product.props)}
                                         >
-                                            <KeyboardArrowLeftIcon className={"product-arrow"} />
+                                            <KeyboardArrowLeftIcon className={"product-arrow"}/>
                                         </button>
                                         <button
                                             onClick={() => decreaseProductQuantity(product.props)}
                                         >
-                                            <KeyboardArrowRightIcon className={"product-arrow"} />
+                                            <KeyboardArrowRightIcon className={"product-arrow"}/>
                                         </button>
                                     </div>
                                 </div>
@@ -80,24 +82,30 @@ const Basket = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="basket_total">
-                        <h2 className="total_title">Cart total</h2>
-                        <div className="subtotal">
-                            <p className="total_name">Subtotal:</p>
-                            <p className="total_price">{totalPrice}$</p>
-                        </div>
-                        <div className="shipping">
-                            <h2 className="total_title">Shipping</h2>
-                            <div className="total_shipping">
-                                <p className="total_flat total_name">flat rate: {flatPrice}$</p>
-                                <p className="total_city total_name">Where to: London UK</p>
+                    <div className='basket_total_block'>
+                        <div className="basket_total">
+                            <h2 className="total_title">Cart total</h2>
+                            <div className="subtotal">
+                                <p className="total_name">Subtotal:</p>
+                                <p className="total_price">{totalPrice}$</p>
+                            </div>
+                            <div className="shipping">
+                                <h2 className="total_title">Shipping</h2>
+                                <div className="total_shipping">
+                                    <p className="total_flat total_name">flat rate: {flatPrice}$</p>
+                                    <p className="total_city total_name">Where to: London UK</p>
+                                </div>
+                            </div>
+                            <div className="total">
+                                <h2 className="total_title">Total</h2>
+                                <h2 className="total_price">{totalPrice + flatPrice}$</h2>
                             </div>
                         </div>
-                        <div className="total">
-                            <h2 className="total_title">Total</h2>
-                            <h2 className="total_price">{totalPrice + flatPrice}$</h2>
-                        </div>
+                        <Link to='/checkout' className='checkout_lick'>
+                            <ButtonProducts className={'checkout_btn'}>Checkout</ButtonProducts>
+                        </Link>
                     </div>
+
                 </div>
             </div>
         </section>
