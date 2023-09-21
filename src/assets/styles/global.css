@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Montserrat:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;300;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 /*Обнуление*/
 
 *{
-    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0 ;
     border: 0;

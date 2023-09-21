@@ -6,12 +6,13 @@ import ButtonMain from "../../../assets/ui/ButtonMain.jsx";
 import PopUp from "../../../assets/ui/pop-up/Pop-up.jsx";
 import Search from "../../../assets/ui/Search.jsx";
 import LayoutData from "./LayoutData.js";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setSearchQuery} from "../../redux/products/reducer.js";
 
 
 const Layout  = () => {
-    const [searchQuery, setSearchQuery] = useState('');
     const [inputQuery, setInputQuery] = useState('');
+    const dispatch = useDispatch();
 
     const [currentJordan, setCurrentJordan] = useState('/img/jordan-footer.png')
 
@@ -48,7 +49,7 @@ const Layout  = () => {
     };
 
     const handleSearchChange = (query) => {
-        setSearchQuery(query)
+        dispatch(setSearchQuery(query))
     };
 
     const handleQuery = (e) => {

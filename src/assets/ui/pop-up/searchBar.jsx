@@ -1,5 +1,5 @@
 import React from "react";
-import "../Search.css"
+import "../SearchProducts.css"
 import {Link} from "react-router-dom";
 
 const SearchBar = ({searchArray}) => {

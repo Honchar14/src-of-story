@@ -1,0 +1,43 @@
+.search_bar_products {
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.50);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 100%;
+    color: black;
+    position: absolute;
+    background-color: white;
+    margin-top: 10px;
+    right: 2px;
+    width: 156px;
+    text-transform: uppercase;
+}
+
+
+.search_product__item {
+    color: black;
+    transition: 0.3s ease;
+    font-size: 12px;
+}
+
+.search_product__item:hover {
+    color: red;
+}
+
+.search_product {
+    color: black;
+}
+
+.search_product:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.search_container {
+    position: relative;
+    max-width: 100%;
+}
+
+.input_products {
+    border: 1px solid black;
+    padding: 10px 20px;
+    border-radius: 30px;
+}

@@ -8,18 +8,36 @@ import Girls from "./categories(kids, man, girls)/Girls.jsx";
 import Kids from "./categories(kids, man, girls)/Kids.jsx";
 import AboutProduct from "./aboutProduct/AboutProduct.jsx";
 import {ReferenceProductsContext} from "../../assets/methods/Context.jsx";
-import {useState} from "react";
-import {componentsData} from "./componentsData.js";
+import {useEffect, useState} from "react";
+import {blogData, componentsData} from "./componentsData.js";
 import AdminPanel from "./adminPanel/AdminPanel.jsx";
 import Basket from "./basket/Basket.jsx";
 import AboutUs from "./aboutUs/AboutUs.jsx";
 import Checkout from "./checkout/Checkout.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {setProducts} from "../redux/products/reducer.js"
+import {setBlogData} from "../redux/blog/reducer.js";
 
 
 function App() {
-    const [product, setProducts] = useState(componentsData)
+    const products = useSelector((state) => state.products.productsData);
+    const dispatch = useDispatch();
+    const setProductsFromArray = (products) => {
+        dispatch(setProducts(products));
+    };
+
+    const setBlogProductFromArray = (products) => {
+        dispatch(setBlogData(products));
+    };
+
+    useEffect(() => {
+        setProductsFromArray(componentsData)
+        setBlogProductFromArray(blogData)
+    },[])
+
+
     return (
-        <ReferenceProductsContext.Provider value={{'products': product, 'otherProduct': ''}}>
+        <ReferenceProductsContext.Provider value={{'products': products, 'otherProduct': ''}}>
             <div className="App">
                 <Routes>
                     <Route path="/" element={<Layout/>}>

@@ -1,32 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Blog.css";
 import Banner from "../categories(kids, man, girls)/multiComponents/Banner.jsx";
 import ButtonNews from "../../../assets/ui/ButtonNews.jsx";
-import Search from "../../../assets/ui/Search.jsx";
-import { blogData } from "../componentsData.js"
+import {useDispatch, useSelector} from "react-redux";
+import {endIndex, setCurrentPage, setSearchQuery, startIndex, totalPages} from "../../redux/blog/reducer.js";
+import SearchProducts from "../../../assets/ui/SearchProducts.jsx";
 
 const Blog = () => {
-    const [blog, setBlog] = useState(blogData);
-    const [copyBlog, setCopyBlog] = useState(blogData);
+    const dispatch = useDispatch();
+    const {currentBlogData, currentPage} = useSelector((state) => state.blog);
+    const totalPagesLocal = useSelector(totalPages);
+    const startIndexLocal = useSelector(startIndex);
+    const endIndexLocal = useSelector(endIndex);
 
-    const blogPerPage = 3;
-    const [currentPage, setCurrentPage] = useState(1);
+    console.log(currentBlogData)
 
-    const startIndex = (currentPage - 1) * blogPerPage;
-    const endIndex = startIndex + blogPerPage;
-
-    const blogToDisplay = blog.slice(startIndex, endIndex);
-    const totalPages = Math.ceil(blog.length / blogPerPage);
 
     const handlePageChange = (newPage) => {
-        setCurrentPage(newPage);
+        dispatch(setCurrentPage(newPage));
     };
+
+
+    const onSearchUpdate = function (searchQuery) {
+        dispatch(setSearchQuery(searchQuery))
+    };
+
 
 
     const useDebounce = (fn, ms) => {
         let timeOut;
         return function () {
-            const fnCall = () => {fn.apply(this, arguments)}
+            const fnCall = () => {
+                fn.apply(this, arguments)
+            }
 
             clearTimeout(timeOut)
 
@@ -34,17 +40,6 @@ const Blog = () => {
         }
     }
 
-    const onSearchUpdate = function (searchQuery) {
-        if (searchQuery === "") {
-            setBlog(copyBlog);
-        } else {
-            const filterBlog = copyBlog.filter((blog) =>
-                blog.title.startsWith(searchQuery)
-            );
-            setBlog(filterBlog);
-        }
-        setCurrentPage(1);
-    };
 
     return (
         <section className="blog">
@@ -54,11 +49,11 @@ const Blog = () => {
             <div className="container">
                 <div className="blog_header">
                     <div className="blog_title">Blog</div>
-                    <Search onChange={useDebounce(onSearchUpdate, 700)}></Search>
+                    <SearchProducts onChange={useDebounce(onSearchUpdate, 700)}></SearchProducts>
                 </div>
 
                 <div className="blog_block">
-                    {blogToDisplay.map((item) => (
+                    {currentBlogData.slice(startIndexLocal,endIndexLocal).map((item) => (
                         <div className="blog_item" key={item.id}>
                             <img className="blog_img" src={item.img} alt="blog-img" />
                             <div className="blog_content">
@@ -73,26 +68,17 @@ const Blog = () => {
                 <div className="pagination">
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
-                        disabled={currentPage === 1}
-                    >
-                        {"<"}
-                    </button>
-                    {Array.from({ length: totalPages }).map((_, i) => (
+                        disabled={currentPage === 1}>{"<"}</button>
+                    {Array.from({ length: Number(totalPagesLocal)}).map((_, i) => (
                         <div className="pagination_button_block" key={i}>
                             <button
                                 onClick={() => handlePageChange(i + 1)}
-                                className={currentPage === i + 1 ? "active" : ""}
-                            >
-                                {i + 1}
-                            </button>
+                                className={currentPage === i + 1 ? "active" : ""}>{i + 1}</button>
                         </div>
                     ))}
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
-                        disabled={currentPage === totalPages}
-                    >
-                        {">"}
-                    </button>
+                        disabled={currentPage === totalPages}>{">"}</button>
                 </div>
             </div>
         </section>

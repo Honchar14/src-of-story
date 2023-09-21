@@ -1,47 +1,40 @@
-import React, {useState} from "react";
+import React from "react";
 import "./GirlsMansKids.css"
-import {componentsData} from "../componentsData.js";
 import ButtonProducts from "../../../assets/ui/ButtonProducts.jsx";
 import Banner from "./multiComponents/Banner.jsx";
-import Search from "../../../assets/ui/Search.jsx";
+
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {setProducts, setCurrentPage, setSearchQuery, startIndex, endIndex, totalPages} from "../../redux/products/reducer.js";
+import {useSelector} from "react-redux";
+import SearchProducts from "../../../assets/ui/SearchProducts.jsx";
 
 
 const Mans = () => {
-    const [products, setProducts] = useState(componentsData);
-    const [copyProducts, setCopyProducts] = useState(componentsData);
+    const dispatch = useDispatch();
+    const {currentProductsData, currentPage, searchQuery, productsData} = useSelector((state) => state.products);
+    const totalPagesLocal = useSelector(totalPages);
+    const startIndexLocal = useSelector(startIndex);
+    const endIndexLocal = useSelector(endIndex);
 
-    const productsPerPage = 8;
-    const [currentPage, setCurrentPage] = useState(1);
-
-    const startIndex = (currentPage - 1) * productsPerPage;
-    const endIndex = startIndex + productsPerPage;
-
-    const productsToDisplay = products.slice(startIndex, endIndex);
-    const totalPages = Math.ceil(products.length / productsPerPage);
 
     const handlePageChange = (newPage) => {
-        setCurrentPage(newPage);
+        dispatch(setCurrentPage(newPage));
     };
 
-    const totalProducts = products.length;
+    const totalProducts = currentProductsData.length;
 
     const onSearchUpdate = function (searchQuery) {
-        if (searchQuery === "") {
-            setProducts(copyProducts);
-        } else {
-            const filterProducts = copyProducts.filter((product) =>
-                product.title.startsWith(searchQuery)
-            );
-            setProducts(filterProducts);
-        }
-        setCurrentPage(1);
+        dispatch(setSearchQuery(searchQuery))
     };
+
 
     const useDebounce = (fn, ms) => {
         let timeOut;
         return function () {
-            const fnCall = () => {fn.apply(this, arguments)}
+            const fnCall = () => {
+                fn.apply(this, arguments)
+            }
 
             clearTimeout(timeOut)
 
@@ -52,7 +45,7 @@ const Mans = () => {
     return (
         <section className="mans">
             <Banner>
-                <h2>For man's</h2>
+                <h2>For men</h2>
             </Banner>
             <div className="container">
                 <div className="mans_products_block">
@@ -61,12 +54,12 @@ const Mans = () => {
                             <h2>Products</h2>
                             <p>{totalProducts} Products</p>
                         </div>
-                        <Search onChange={useDebounce(onSearchUpdate, 700)}></Search>
+                        <SearchProducts onChange={useDebounce(onSearchUpdate, 700)}></SearchProducts>
                     </div>
                     <div className="mans_products">
-                        {productsToDisplay.map((product) => (
+                        {currentProductsData.slice(startIndexLocal, endIndexLocal).map((product) => (
                             <div className="mans_product" key={product.id}>
-                                <img src={product.img} alt="product_img" className="product_img" />
+                                <img src={product.img} alt="product_img" className="product_img"/>
                                 <p className="product_brand">{product.brand}</p>
                                 <h2 className="product_title">{product.title}</h2>
                                 <p className="product_price">{product.price}$</p>
@@ -81,7 +74,7 @@ const Mans = () => {
                         <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
                             {"<"}
                         </button>
-                        {Array.from({ length: totalPages }).map((_, i) => (
+                        {Array.from({ length: Number(totalPagesLocal)}).map((_, i) => (
                             <div className="pagination_button_block" key={i}>
                                 <button
                                     onClick={() => handlePageChange(i + 1)}
@@ -91,7 +84,7 @@ const Mans = () => {
                                 </button>
                             </div>
                         ))}
-                        <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                        <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPagesLocal}>
                             {">"}
                         </button>
                     </div>
